@@ -25,6 +25,10 @@
     --line-height-big: 1.8;
 }
 
+* {
+    line-height: var(--line-height-base);
+}
+
 html {
     scroll-behavior: smooth;
     font-size: 62.5%;
@@ -47,6 +51,11 @@ h1{
 h2 {
     font-family: var(--font-family-title);
     font-size: var(--font-size-large);
+}
+
+h3 {
+    font-family: var(--font-family-title);
+    font-size: var(--font-size-medium);
 }
 
 .hero_container {
@@ -72,11 +81,6 @@ h2 {
 .logo img {
     min-width: 70%;
     min-height: 70%;
-}
-
-
-.logo {
-    padding-left: 5rem;
 }
 
 nav {
@@ -112,17 +116,7 @@ section.hero_cta * {
     text-align: center;
 }
 
-section.hero_cta input {
-    color: var(--color-white);
-    background-color: var(--color-primary);
-    border-radius: 22px;
-    border: none;
-    padding: 1rem;
-    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.25);
-    width: 15rem;
-}
-
-section.hero_cta input:hover {
+input[type="button"]:hover {
     cursor: pointer;
     box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.75);
 }
@@ -223,13 +217,17 @@ p.hero_p {
         align-self: center;
     }
 
+    .logo {
+        padding-left: 5rem;
+    }
+    
     .menu-button-container {
-    display: flex;
+        display: flex;
     }
     .header {
         padding: 5rem 1rem 1rem 2rem;
     }
-
+    
     .menu {
         position: absolute;
         top: 0;
@@ -241,7 +239,7 @@ p.hero_p {
         align-items: center;
         display: block;
     }
-
+    
     #menu-toggle ~ .menu li {
         height: 0;
         margin: 0;
@@ -262,21 +260,21 @@ p.hero_p {
         width: 100%;
         color: white;
     }
-
+    
     .menu > li > a {
         padding: 0 2.5rem 0 2.5rem;
         color: #ffffff;
         text-decoration: none;
     }
-
+    
     .menu > li:not(:last-child) {
         border-bottom: 1px solid #444;
     }
-
+    
     .right-nav {
         display: none;
     }
-
+    
     h1.hero_h1 {
         margin-bottom: 0;
         font-size: var(--font-size-large);
@@ -291,9 +289,257 @@ p.hero_p {
         margin-top: 5rem;
         font-size: var(--font-size-small);
     }
-
+    
     section.hero_cta {
         max-width: 75vw;
         top: 15rem;
+    }
+}
+
+/* What we do... */
+.what-we-do-container {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    overflow: auto;
+    padding: 5rem 0 5rem 0;
+    color: var(--color-black);
+    flex-direction: column;
+}
+
+div.what-we-do-copy {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 60vw;
+    margin-bottom: 5rem;
+}
+
+.we-do-blocks {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    margin: 5rem 0 5rem 0;
+}
+
+@media screen and (max-width:480px) {
+    .we-do {
+        margin: 5rem 0 5rem 0;
+    }
+    
+    .what-we-do-container {
+        flex-direction: row;
+        overflow: scroll;
+    }
+    
+    .we-do-blocks {
+        flex-wrap: wrap;
+        flex-direction: column;
+    }
+}
+
+h2.what-we-do {
+    margin-bottom: 4rem;
+    font-weight: var(--font-weight-bold);
+}
+
+p.what-we-do {
+    text-align: center;
+    font-size: var(--font-size-small);
+}
+
+/* Results */
+.wrapper {
+    overflow: visible;
+}
+
+.results-container {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url(images/headphones_hero_2.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    flex-wrap: wrap;
+    overflow: auto;
+    padding: 5rem 0 5rem 0;
+}
+
+div.results-copy {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 60vw;
+    margin-bottom: 5rem;
+}
+
+div.results-figures {
+    display: flex;
+    justify-content: space-evenly;
+    width: 100vw;
+    flex-wrap: wrap;
+}
+
+div.results-figures div.figure {
+    margin: 1rem;
+}
+
+div.results-copy h2.results {
+    margin-bottom: 4rem;
+}
+
+div.results-copy p.results {
+    text-align: center;
+}
+
+div.figure {
+    background-image: url(images/pentagone.png);
+    background-position: cover;
+    background-size: contain;
+    background-repeat: no-repeat;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 20rem;
+    width: 20rem;
+}
+
+/* @media (max-width: 767px) {
+    .results-container {
+        flex-direction: column;
+    }
+} */
+
+/* Form */
+.form-container {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    width: 75vw;
+}
+
+.form h1 {
+    align-self: center;
+}
+
+.form input[type="text"] {
+    border:none;
+    outline: none;
+    border-bottom: .1rem solid var(--color-grey);
+    padding: 0 0 1rem 0;
+    font-weight: var(--font-weight-bold);
+}
+
+.form input::placeholder {
+    font-weight: bold;
+}
+
+.form * {
+    color: var(--color-black);
+    justify-self: center;
+    margin: 2rem 0 2rem 0;
+}
+
+input[type="button"]{
+    color: var(--color-white);
+    background-color: var(--color-primary);
+    border-radius: 22px;
+    border: none;
+    padding: 1rem;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.25);
+    width: 15rem;
+    align-self: center;
+}
+
+/* Footer I think */
+.grid-container {
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    justify-items: center;
+    align-items: center;
+    height: 25vh;
+    background-color: var(--color-black);
+    padding: 2rem;
+}
+
+
+.grid-container .logo {
+    grid-row: 1;
+    padding-left: 0;
+    display: grid;
+}
+
+.grid-container .logo img {
+    justify-self: center;
+    position: relative;
+    height: max-content;
+}
+
+.social {
+    display: flex;
+    justify-content: space-between;
+    grid-row: 2;
+    width: 60%;
+}
+
+.social-circle {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: var(--color-white);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.social-circle a {
+    color: #fff;
+    font-size: 24px;
+}
+
+.bottom-p {
+    grid-row: 3;
+    font-size: 12px;
+    color: #666;
+}
+
+@media screen and (min-width: 481px) {
+    .grid-container {
+        justify-content: space-evenly;
+        align-items: center;
+        padding: 5rem 1rem 5rem 1rem;
+    }
+    
+    .logo {
+        grid-row: 1;
+        grid-column: 1;
+    }
+    
+    .social {
+        grid-row: 1;
+        grid-column: 2;
+        width: auto;
+    }
+    
+    .social-circle {
+        margin: 1rem;
+    }
+
+    .bottom-p {
+        grid-column: 1 / span 2;
     }
 }
