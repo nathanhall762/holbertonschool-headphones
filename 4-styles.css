@@ -1,11 +1,14 @@
+/* #region Custom styles */
 :root {
+    /* colors */
     --color-primary: #FF6565;
-    --color-black:  #090909;
+    --color-black:  #071629;
     --color-white: #ffffff;
     --color-grey: #a0a0a0;
     --color-light-grey: #f3f3f3;
     --color-dark-grey: #353535;
-
+    
+    /* fonts */
     --text-color: var(--color-black);
 
     --font-family-base: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
@@ -20,57 +23,80 @@
     --font-weight-regular: 400;
     --font-weight-bold: 700;
 
+    /* line height */
     --line-height-small: 1.2;
-    --line-height-base: 1.5;
+    --line-height-base: 1.9;
     --line-height-big: 1.8;
 }
+/* #endregion */
 
-* {
-    line-height: var(--line-height-base);
-}
-
+/* #region Global styles */
 html {
     scroll-behavior: smooth;
     font-size: 62.5%;
 }
 
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
 body {
-    color: var(--color-white);
     font-family: var(--font-family-base);
+    font-size: var(--font-size-medium);
     font-size: var(--font-size-medium);
     font-weight: var(--font-weight-regular);
     line-height: var(--line-height-base);
+    color: var(--color-white);
 }
 
-h1{
+section {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+}
+
+button,
+input[type="submit"],
+input[type="button"]{
+    color: var(--color-white);
+    background-color: var(--color-primary);
+    border-radius: 22px;
+    border: none;
+    padding: 1rem;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.25);
+    width: 15rem;
+    justify-content: center;
+}
+
+button:hover,
+input[type="submit"]:hover,
+input[type="button"]:hover {
+    cursor: pointer;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.75);
+}
+/* #endregion */
+
+/* #region Typography */
+h1 {
     font-family: var(--font-family-title);
-    font-weight: var(--font-weight-bold);
     font-size: var(--font-size-x-large);
+    font-weight: var(--font-weight-bold);
 }
 
 h2 {
     font-family: var(--font-family-title);
     font-size: var(--font-size-large);
+    font-weight: var(--font-weight-bold);
 }
+/* #endregion */
 
-h3 {
-    font-family: var(--font-family-title);
-    font-size: var(--font-size-medium);
-}
-
-.hero_container {
-    background-image: url(images/headphones_hero_1.jpg);
-    background-repeat: no-repeat;
-    background-size: cover;
-    height: 100vh;
-    width: 100vw;
+/* #region Header */
+header {
     display: flex;
-    flex-direction: column;
-    background-position: center;
-}
-
-.header {
-    display: flex;
+    flex-direction: row;
     min-height: fit-content;
     justify-content: space-between;
     align-content: center;
@@ -97,56 +123,9 @@ nav a {
 .right-nav>a {
     white-space: nowrap;
 }
+/* #endregion */
 
-section.hero_cta {
-    display: flex;
-    flex-direction: column;
-    align-self: center;
-    max-width: 50vw;
-    bottom: -20vw;
-    position: relative;
-}
-
-section.hero_cta * {
-    /* padding: 3rem 1rem 3rem 1rem; */
-    margin: 2rem 0 2rem 0;
-    display: flex;
-    align-self: center;
-    position: inherit;
-    text-align: center;
-}
-
-input[type="button"]:hover {
-    cursor: pointer;
-    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.75);
-}
-
-h1.hero_h1 {
-    margin-bottom: 0;
-}
-
-h2.hero_h2 {
-    margin-top: 0;
-}
-
-p.hero_p {
-    margin-top: 10rem;
-}
-
-
-/* Insert Hamburger */
-
-* {
-    box-sizing: border-box;
-}
-
-.top-nav {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-}
-
+/* #region Hamburger */
 .menu {
     display: none;
     flex-direction: row;
@@ -225,7 +204,7 @@ p.hero_p {
         display: flex;
     }
     .header {
-        padding: 5rem 1rem 1rem 2rem;
+        padding: 2rem 1rem 1rem 2rem;
     }
     
     .menu {
@@ -274,7 +253,50 @@ p.hero_p {
     .right-nav {
         display: none;
     }
-    
+}
+/* #endregion */
+
+/* #region Hero */
+section.hero_container {
+    background-image: url(images/headphones_hero_1.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.hero_cta {
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    max-width: 50vw;
+    position: relative;
+    margin: 25rem;
+}
+
+.hero_cta * {
+    margin: 2rem 0 2rem 0;
+    display: flex;
+    align-self: center;
+    position: inherit;
+    text-align: center;
+}
+
+h1.hero_h1 {
+    margin-bottom: 0;
+}
+
+h2.hero_h2 {
+    margin-top: 0;
+}
+
+p.hero_p {
+    margin-top: 5rem;
+}
+
+@media (max-width: 480px) {
+    section.hero_container {
+        background-position: 35%;
+    }
     h1.hero_h1 {
         margin-bottom: 0;
         font-size: var(--font-size-large);
@@ -290,24 +312,25 @@ p.hero_p {
         font-size: var(--font-size-small);
     }
     
-    section.hero_cta {
+    .hero_cta {
         max-width: 75vw;
         top: 15rem;
+        margin: 0;
     }
 }
+/* #endregion */
 
-/* What we do... */
+/* #region What we do */
 .what-we-do-container {
     height: 100vh;
     width: 100vw;
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-wrap: wrap;
-    overflow: auto;
-    padding: 5rem 0 5rem 0;
-    color: var(--color-black);
     flex-direction: column;
+    padding: 5rem 0 5rem 0;
+    color: var(--text-color);
+    text-align: center;
 }
 
 div.what-we-do-copy {
@@ -322,17 +345,22 @@ div.what-we-do-copy {
     text-align: center;
     display: flex;
     justify-content: center;
-    margin: 5rem 0 5rem 0;
+    margin: 5rem 0;
 }
 
-@media screen and (max-width:480px) {
+.we-do-icon {
+    color: var(--color-primary);
+}
+
+@media (max-width:480px) {
     .we-do {
-        margin: 5rem 0 5rem 0;
+        margin: 5rem 0;
     }
     
     .what-we-do-container {
-        flex-direction: row;
+        flex-direction: column;
         overflow: scroll;
+        height: fit-content;
     }
     
     .we-do-blocks {
@@ -351,7 +379,12 @@ p.what-we-do {
     font-size: var(--font-size-small);
 }
 
-/* Results */
+.what-we-do {
+    margin-bottom: 5rem;
+}
+/* #endregion */
+
+/* #region Results */
 .wrapper {
     overflow: visible;
 }
@@ -368,10 +401,11 @@ p.what-we-do {
     background-position: center;
     flex-wrap: wrap;
     overflow: auto;
-    padding: 5rem 0 5rem 0;
+    padding: 5rem 0;
+    text-align: center;
 }
 
-div.results-copy {
+.results-copy {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -379,26 +413,26 @@ div.results-copy {
     margin-bottom: 5rem;
 }
 
-div.results-figures {
+.results-figures {
     display: flex;
     justify-content: space-evenly;
     width: 100vw;
     flex-wrap: wrap;
 }
 
-div.results-figures div.figure {
+.results-figures div.figure {
     margin: 1rem;
 }
 
-div.results-copy h2.results {
+.results-copy h2.results {
     margin-bottom: 4rem;
 }
 
-div.results-copy p.results {
+.results-copy p.results {
     text-align: center;
 }
 
-div.figure {
+.figure {
     background-image: url(images/pentagone.png);
     background-position: cover;
     background-size: contain;
@@ -411,25 +445,32 @@ div.figure {
     width: 20rem;
 }
 
-/* @media (max-width: 767px) {
-    .results-container {
-        flex-direction: column;
-    }
-} */
+.results {
+    margin-bottom: 5rem;
+}
 
-/* Form */
+@media (max-width: 480px) {
+    .results-container {
+        height: fit-content;
+    }
+}
+/* #endregion */
+
+/* #region Form */
 .form-container {
     height: 100vh;
     width: 100vw;
     display: flex;
     justify-content: center;
     align-items: center;
+    text-align: center;
 }
 
 .form {
     display: flex;
     flex-direction: column;
-    width: 75vw;
+    width: 25vw;
+    align-items: center;
 }
 
 .form h1 {
@@ -451,21 +492,11 @@ div.figure {
 .form * {
     color: var(--color-black);
     justify-self: center;
-    margin: 2rem 0 2rem 0;
+    margin: 2rem 0 5rem 0;
 }
+/* #endregion */
 
-input[type="button"]{
-    color: var(--color-white);
-    background-color: var(--color-primary);
-    border-radius: 22px;
-    border: none;
-    padding: 1rem;
-    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.25);
-    width: 15rem;
-    align-self: center;
-}
-
-/* Footer I think */
+/* #region Footer */
 .grid-container {
     display: grid;
     grid-template-rows: auto 1fr auto;
@@ -517,7 +548,7 @@ input[type="button"]{
     color: #666;
 }
 
-@media screen and (min-width: 481px) {
+@media (min-width: 480px) {
     .grid-container {
         justify-content: space-evenly;
         align-items: center;
@@ -543,3 +574,4 @@ input[type="button"]{
         grid-column: 1 / span 2;
     }
 }
+/* #endregion */

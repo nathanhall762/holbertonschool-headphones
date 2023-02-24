@@ -2,7 +2,7 @@
 :root {
     /* colors */
     --color-primary: #FF6565;
-    --color-black:  #090909;
+    --color-black:  #071629;
     --color-white: #ffffff;
     --color-grey: #a0a0a0;
     --color-light-grey: #f3f3f3;
@@ -25,7 +25,7 @@
 
     /* line height */
     --line-height-small: 1.2;
-    --line-height-base: 1.5;
+    --line-height-base: 1.9;
     --line-height-big: 1.8;
 }
 /* #endregion */
@@ -68,7 +68,7 @@ input[type="button"]{
     padding: 1rem;
     box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.25);
     width: 15rem;
-    align-self: center;
+    justify-content: center;
 }
 
 button:hover,
@@ -204,7 +204,7 @@ nav a {
         display: flex;
     }
     .header {
-        padding: 5rem 1rem 1rem 2rem;
+        padding: 2rem 1rem 1rem 2rem;
     }
     
     .menu {
@@ -269,8 +269,8 @@ section.hero_container {
     flex-direction: column;
     align-self: center;
     max-width: 50vw;
-    bottom: -20vw;
     position: relative;
+    margin: 25rem;
 }
 
 .hero_cta * {
@@ -290,10 +290,13 @@ h2.hero_h2 {
 }
 
 p.hero_p {
-    margin-top: 10rem;
+    margin-top: 5rem;
 }
 
-@media (max-width:480) {
+@media (max-width: 480px) {
+    section.hero_container {
+        background-position: 35%;
+    }
     h1.hero_h1 {
         margin-bottom: 0;
         font-size: var(--font-size-large);
@@ -309,9 +312,10 @@ p.hero_p {
         font-size: var(--font-size-small);
     }
     
-    section.hero_cta {
+    .hero_cta {
         max-width: 75vw;
         top: 15rem;
+        margin: 0;
     }
 }
 /* #endregion */
@@ -325,6 +329,8 @@ p.hero_p {
     align-items: center;
     flex-direction: column;
     padding: 5rem 0 5rem 0;
+    color: var(--text-color);
+    text-align: center;
 }
 
 div.what-we-do-copy {
@@ -342,14 +348,19 @@ div.what-we-do-copy {
     margin: 5rem 0;
 }
 
+.we-do-icon {
+    color: var(--color-primary);
+}
+
 @media (max-width:480px) {
     .we-do {
         margin: 5rem 0;
     }
     
     .what-we-do-container {
-        flex-direction: row;
+        flex-direction: column;
         overflow: scroll;
+        height: fit-content;
     }
     
     .we-do-blocks {
@@ -366,6 +377,10 @@ h2.what-we-do {
 p.what-we-do {
     text-align: center;
     font-size: var(--font-size-small);
+}
+
+.what-we-do {
+    margin-bottom: 5rem;
 }
 /* #endregion */
 
@@ -387,9 +402,10 @@ p.what-we-do {
     flex-wrap: wrap;
     overflow: auto;
     padding: 5rem 0;
+    text-align: center;
 }
 
-div.results-copy {
+.results-copy {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -397,26 +413,26 @@ div.results-copy {
     margin-bottom: 5rem;
 }
 
-div.results-figures {
+.results-figures {
     display: flex;
     justify-content: space-evenly;
     width: 100vw;
     flex-wrap: wrap;
 }
 
-div.results-figures div.figure {
+.results-figures div.figure {
     margin: 1rem;
 }
 
-div.results-copy h2.results {
+.results-copy h2.results {
     margin-bottom: 4rem;
 }
 
-div.results-copy p.results {
+.results-copy p.results {
     text-align: center;
 }
 
-div.figure {
+.figure {
     background-image: url(images/pentagone.png);
     background-position: cover;
     background-size: contain;
@@ -428,6 +444,16 @@ div.figure {
     height: 20rem;
     width: 20rem;
 }
+
+.results {
+    margin-bottom: 5rem;
+}
+
+@media (max-width: 480px) {
+    .results-container {
+        height: fit-content;
+    }
+}
 /* #endregion */
 
 /* #region Form */
@@ -437,12 +463,14 @@ div.figure {
     display: flex;
     justify-content: center;
     align-items: center;
+    text-align: center;
 }
 
 .form {
     display: flex;
     flex-direction: column;
-    width: 75vw;
+    width: 25vw;
+    align-items: center;
 }
 
 .form h1 {
@@ -464,7 +492,7 @@ div.figure {
 .form * {
     color: var(--color-black);
     justify-self: center;
-    margin: 2rem 0 2rem 0;
+    margin: 2rem 0 5rem 0;
 }
 /* #endregion */
 
@@ -520,7 +548,7 @@ div.figure {
     color: #666;
 }
 
-@media screen and (min-width: 481px) {
+@media (min-width: 480px) {
     .grid-container {
         justify-content: space-evenly;
         align-items: center;
